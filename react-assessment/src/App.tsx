@@ -1,7 +1,9 @@
+import Blogs from "./components/blogs";
+
 function App() {
   return (
     <>
-      <h1 className="text-2xl">React Assesment</h1>
+      <Blogs />
     </>
   );
 }
