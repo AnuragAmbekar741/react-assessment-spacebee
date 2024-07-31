@@ -9,7 +9,7 @@ interface FilterProps {
 const Filter: React.FC<FilterProps> = ({ title, filterOption }) => {
   return (
     <div className="flex flex-col w-full gap-4">
-      <div className="py-2 px-4 tex-md font-medium bg-slate-100 text-slate-800 rounded-md">
+      <div className="py-2 px-4 tex-md font-medium bg-gray-100 text-slate-800 rounded-md">
         {title}
       </div>
       <div className="grid px-2 gap-3">
@@ -19,7 +19,7 @@ const Filter: React.FC<FilterProps> = ({ title, filterOption }) => {
               key={ele.id}
               className="flex w-full justify-start items-center text-[15px] font-light"
             >
-              <input type="checkbox" />
+              <input type="checkbox" className="p-2" />
               <p className="ml-3">{ele.title}</p>
             </div>
           );

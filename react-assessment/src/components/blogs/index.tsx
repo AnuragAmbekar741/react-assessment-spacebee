@@ -3,6 +3,7 @@ import MainContainer from "../common/MainContainer";
 import LeftContainer from "../common/LeftContainer";
 import RightContainer from "../common/RightContainer";
 import FilterContainer from "./filters/FilterContainer";
+import BlogContainer from "./BlogContainer";
 
 const Blogs: React.FC = () => {
   return (
@@ -11,7 +12,9 @@ const Blogs: React.FC = () => {
         <LeftContainer>
           <FilterContainer />
         </LeftContainer>
-        <RightContainer></RightContainer>
+        <RightContainer>
+          <BlogContainer />
+        </RightContainer>
       </MainContainer>
     </div>
   );

@@ -1,7 +1,11 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
-const RightContainer: React.FC = () => {
-  return <div className="w-3/4 flex overflow-y-auto">RightContainer</div>;
+interface RightContainerProps {
+  children: ReactNode;
+}
+
+const RightContainer: React.FC<RightContainerProps> = ({ children }) => {
+  return <div className="w-[77.5%] flex overflow-y-auto">{children}</div>;
 };
 
 export default RightContainer;
