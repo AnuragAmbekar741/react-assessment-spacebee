@@ -1,14 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit';
-import blogReducer, {BlogsStateProps} from "../slices/blogsSlice"
+import blogReducer, {BlogsState} from "../slices/blogsSlice"
+import paginationReducer, {PaginationState} from "../slices/paginationSlice"
 
 const store = configureStore({
   reducer: {
     blogs: blogReducer,
+    pagination:paginationReducer
   },
 });
 
 export type RootState = {
-  blogs: BlogsStateProps;
+  blogs: BlogsState;
+  pagination:PaginationState;
 };
 export type AppDispatch = typeof store.dispatch;
 

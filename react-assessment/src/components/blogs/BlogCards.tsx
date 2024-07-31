@@ -29,7 +29,6 @@ const BlogCard: React.FC<BlogCardsProps> = ({
           <div className="flex flex-col justify-start gap-1 pl-5">
             <div className="flex items-start">
               <p className="text-[12px] text-gray-500 font-light">
-                {/* December 21, 2023 */}
                 {formatDate(date)}
               </p>
             </div>

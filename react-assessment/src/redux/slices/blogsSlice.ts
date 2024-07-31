@@ -3,13 +3,13 @@ import { Blog } from "../../types"
 import { fetchData } from "../../utils/general"
 import { AxiosResponse } from "axios"
 
-export interface BlogsStateProps {
+export interface BlogsState {
     blogs: Blog[]
     loading:boolean
     error:string|null
 }
 
-const initialState:BlogsStateProps={
+const initialState:BlogsState={
     blogs:[],
     loading:false,
     error:null

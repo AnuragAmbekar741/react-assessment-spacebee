@@ -4,6 +4,7 @@ import LeftContainer from "../common/LeftContainer";
 import RightContainer from "../common/RightContainer";
 import FilterContainer from "./filters/FilterContainer";
 import BlogContainer from "./BlogContainer";
+import Pagination from "./Pagination";
 
 const Blogs: React.FC = () => {
   return (
@@ -13,7 +14,10 @@ const Blogs: React.FC = () => {
           <FilterContainer />
         </LeftContainer>
         <RightContainer>
-          <BlogContainer />
+          <div className="grid">
+            <BlogContainer />
+            <Pagination />
+          </div>
         </RightContainer>
       </MainContainer>
     </div>
