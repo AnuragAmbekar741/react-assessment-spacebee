@@ -5,6 +5,7 @@ import { RootState, AppDispatch } from "../../redux/store";
 import { unwrapResult } from "@reduxjs/toolkit";
 import BlogCard from "./BlogCards";
 import BlogCardSkeleton from "./BlogCardSkeleton";
+import { CircularProgress } from "@mui/material";
 import { getFilterEleCount } from "../../redux/slices/fliterSlice";
 
 interface BlogContainerProps {}
@@ -86,8 +87,16 @@ const BlogContainer: React.FC<BlogContainerProps> = () => {
         paginatedBlogs.map((blog) => {
           return <BlogCard {...blog} key={blog.title} />;
         })}
-      {paginatedBlogs.length === 0 && <div>No blogs</div>}
-      {blogs.loading && <BlogCardSkeleton />}
+      {paginatedBlogs.length === 0 && (
+        <div className="text-lg font-light text-red-500">
+          Blogs not available as per the applied filters !
+        </div>
+      )}
+      {blogs.loading && (
+        <div className="w-full flex items-center justify-center m-60">
+          <CircularProgress />
+        </div>
+      )}
     </div>
   );
 };
