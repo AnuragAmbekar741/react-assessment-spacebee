@@ -5,7 +5,9 @@ interface RightContainerProps {
 }
 
 const RightContainer: React.FC<RightContainerProps> = ({ children }) => {
-  return <div className="w-[77.5%] flex overflow-y-auto">{children}</div>;
+  return (
+    <div className="w-full md:w-[77.5%] flex overflow-y-auto">{children}</div>
+  );
 };
 
 export default RightContainer;
