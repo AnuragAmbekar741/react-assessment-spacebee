@@ -14,7 +14,7 @@ const Blogs: React.FC = () => {
           <FilterContainer />
         </LeftContainer>
         <RightContainer>
-          <div className="grid">
+          <div className="grid w-full">
             <BlogContainer />
             <Pagination />
           </div>

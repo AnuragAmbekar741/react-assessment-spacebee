@@ -7,6 +7,8 @@ import BlogCard from "./BlogCards";
 import BlogCardSkeleton from "./BlogCardSkeleton";
 import { CircularProgress } from "@mui/material";
 import { getFilterEleCount } from "../../redux/slices/fliterSlice";
+import Filter from "./filters/Filter";
+import { AuthorFilter, CategoryFilter, SortBy } from "../../utils/constant";
 
 interface BlogContainerProps {}
 
@@ -80,24 +82,33 @@ const BlogContainer: React.FC<BlogContainerProps> = () => {
   const paginatedBlogs = filteredBlogs.slice(startIndex, startIndex + 5);
 
   return (
-    <div ref={containerRef} className="w-full flex flex-col">
-      {blogs &&
-        !blogs.loading &&
-        paginatedBlogs.length > 0 &&
-        paginatedBlogs.map((blog) => {
-          return <BlogCard {...blog} key={blog.title} />;
-        })}
-      {paginatedBlogs.length === 0 && (
-        <div className="text-lg font-light text-red-500">
-          Blogs not available as per the applied filters !
+    <>
+      <div className="grid w-full pt-10 pb-5 md:hidden">
+        <div className="flex w-full justify-between border rounded-lg p-3">
+          <Filter filterOption={CategoryFilter} title="Category" />
+          <Filter filterOption={AuthorFilter} title="Author" />
+          <Filter filterOption={SortBy} title="Sort" />
         </div>
-      )}
-      {blogs.loading && (
-        <div className="w-full flex items-center justify-center m-60">
-          <CircularProgress />
-        </div>
-      )}
-    </div>
+      </div>
+      <div ref={containerRef} className="w-full flex flex-col">
+        {blogs &&
+          !blogs.loading &&
+          paginatedBlogs.length > 0 &&
+          paginatedBlogs.map((blog) => {
+            return <BlogCard {...blog} key={blog.title} />;
+          })}
+        {paginatedBlogs.length === 0 && (
+          <div className="text-lg font-light text-red-500">
+            Blogs not available as per the applied filters !
+          </div>
+        )}
+        {blogs.loading && (
+          <div className="w-full flex items-center justify-center m-60">
+            <CircularProgress />
+          </div>
+        )}
+      </div>
+    </>
   );
 };
 

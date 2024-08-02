@@ -5,7 +5,7 @@ interface LeftContainerProps {
 }
 
 const LeftContainer: React.FC<LeftContainerProps> = ({ children }) => {
-  return <div className="hidden md:w-[20%] md:flex">{children}</div>;
+  return <div className="hidden md:flex md:w-[25%] lg:w-[20%]">{children}</div>;
 };
 
 export default LeftContainer;
