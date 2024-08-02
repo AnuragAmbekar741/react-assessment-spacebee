@@ -35,7 +35,6 @@ const Filter: React.FC<FilterProps> = ({
           ...filter,
           type: isAsc ? "sortBy-asc" : "sortBy-dsc",
         };
-        console.log(filterToDispatch);
         dispatch(toggleSortBy(filterToDispatch));
       }
     } else {

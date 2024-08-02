@@ -4,7 +4,6 @@ import { fetchBlogs } from "../../redux/slices/blogsSlice";
 import { RootState, AppDispatch } from "../../redux/store";
 import { unwrapResult } from "@reduxjs/toolkit";
 import BlogCard from "./BlogCards";
-import BlogCardSkeleton from "./BlogCardSkeleton";
 import { CircularProgress } from "@mui/material";
 import { getFilterEleCount } from "../../redux/slices/fliterSlice";
 import Filter from "./filters/Filter";
@@ -24,7 +23,6 @@ const BlogContainer: React.FC<BlogContainerProps> = () => {
     (state: RootState) => state.filter.authors
   );
   const selectedSortBy = useSelector((state: RootState) => state.filter.sortBy);
-  console.log(selectedSortBy);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const handleFetchBlogs = useCallback(async () => {
