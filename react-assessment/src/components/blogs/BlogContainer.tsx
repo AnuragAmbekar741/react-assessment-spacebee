@@ -64,11 +64,29 @@ const BlogContainer: React.FC<BlogContainerProps> = () => {
     }
     if (selectedSortBy.length > 0) {
       filtered.sort((a, b) => {
-        if (selectedSortBy[0].id === "date") {
+        if (
+          selectedSortBy[0].id === "date" &&
+          selectedSortBy[0].type === "sortBy-asc"
+        ) {
           return new Date(a.date).getTime() - new Date(b.date).getTime();
         }
-        if (selectedSortBy[0].id === "title") {
+        if (
+          selectedSortBy[0].id === "date" &&
+          selectedSortBy[0].type === "sortBy-dsc"
+        ) {
+          return new Date(b.date).getTime() - new Date(a.date).getTime();
+        }
+        if (
+          selectedSortBy[0].id === "title" &&
+          selectedSortBy[0].type === "sortBy-asc"
+        ) {
           return a.title.localeCompare(b.title);
+        }
+        if (
+          selectedSortBy[0].id === "title" &&
+          selectedSortBy[0].type === "sortBy-dsc"
+        ) {
+          return b.title.localeCompare(a.title);
         }
         return 0;
       });

@@ -23,7 +23,7 @@ const Filter: React.FC<FilterProps> = ({
   isSortBy = false,
 }) => {
   const dispatch = useDispatch<AppDispatch>();
-  const [isAsc, setIsAsc] = useState<boolean>(false);
+  const [isAsc, setIsAsc] = useState<boolean>(true);
   const handleCheckboxChange = (filter: FilterOptions, isChecked: boolean) => {
     if (isChecked) {
       if (filter.type === "category") {
@@ -31,8 +31,12 @@ const Filter: React.FC<FilterProps> = ({
       } else if (filter.type === "author") {
         dispatch(toggleAuthorFilter(filter));
       } else if (filter.type === "sortBy") {
-        console.log(filter);
-        dispatch(toggleSortBy(filter));
+        const filterToDispatch = {
+          ...filter,
+          type: isAsc ? "sortBy-asc" : "sortBy-dsc",
+        };
+        console.log(filterToDispatch);
+        dispatch(toggleSortBy(filterToDispatch));
       }
     } else {
       dispatch(removeFilter(filter));
@@ -43,7 +47,21 @@ const Filter: React.FC<FilterProps> = ({
     <div className="flex flex-col w-full gap-4 mx-3  md:mx-0">
       <div className={`flex justify-between py-2 px-4 bg-gray-100  rounded-md`}>
         <p className="text-md font-medium text-slate-800">{title}</p>
-        {/* {isSortBy &&{isAsc?<U}} */}
+        {isSortBy && (
+          <>
+            {isAsc ? (
+              <ArrowUpwardIcon
+                onClick={() => setIsAsc(false)}
+                className="text-2xl cursor-pointer"
+              />
+            ) : (
+              <ArrowDownwardIcon
+                onClick={() => setIsAsc(true)}
+                className="text-2xl cursor-pointer"
+              />
+            )}
+          </>
+        )}
       </div>
       <div className="grid px-2 gap-3">
         {filterOption.map((ele) => {
