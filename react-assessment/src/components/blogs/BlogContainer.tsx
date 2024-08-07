@@ -2,7 +2,6 @@ import React, { useEffect, useCallback, useRef, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchBlogs } from "../../redux/slices/blogsSlice";
 import { RootState, AppDispatch } from "../../redux/store";
-import { unwrapResult } from "@reduxjs/toolkit";
 import BlogCard from "./BlogCards";
 import { CircularProgress } from "@mui/material";
 import { getFilterEleCount } from "../../redux/slices/fliterSlice";
@@ -27,8 +26,7 @@ const BlogContainer: React.FC<BlogContainerProps> = () => {
 
   const handleFetchBlogs = useCallback(async () => {
     try {
-      const blogsResp = await dispatch(fetchBlogs());
-      const unwrapBlogsResp = unwrapResult(blogsResp);
+      await dispatch(fetchBlogs());
     } catch (error) {
       console.error("Failed to fetch blogs:", error);
     }
