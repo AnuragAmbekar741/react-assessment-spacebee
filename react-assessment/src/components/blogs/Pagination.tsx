@@ -7,8 +7,6 @@ import { RootState, AppDispatch } from "../../redux/store";
 
 interface PaginationProps {}
 
-interface PaginationEleProps {}
-
 const Pagination: React.FC<PaginationProps> = () => {
   const dispatch = useDispatch<AppDispatch>();
   const page = useSelector((state: RootState) => state.pagination.page);
