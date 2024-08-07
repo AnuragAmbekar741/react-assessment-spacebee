@@ -15,7 +15,10 @@ const BlogCard: React.FC<BlogCardsProps> = ({
   author,
 }) => {
   return (
-    <div className="w-full flex flex-col gap-10 md:gap-20 lg:gap-8 border-b border-slate-200 px-2 pb-7 mb-10">
+    <div
+      onClick={() => window.open(url, "_blank")}
+      className="w-full flex flex-col gap-10 md:gap-20 lg:gap-8 border-b border-slate-200 px-2 pb-7 mb-10 cursor-pointer"
+    >
       <div className="w-full flex justify-start items-start md:items-center">
         <div className="md:w-[13%] lg:w-[10%]  h-[4.5rem]">
           <img
