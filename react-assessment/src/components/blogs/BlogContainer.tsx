@@ -89,9 +89,12 @@ const BlogContainer: React.FC<BlogContainerProps> = () => {
         return 0;
       });
     }
-    dispatch(getFilterEleCount(filtered.length));
     return filtered;
   }, [blogs.blogs, selectedCategories, selectedAuthors, selectedSortBy]);
+
+  useEffect(() => {
+    dispatch(getFilterEleCount(filteredBlogs.length));
+  }, [dispatch, filteredBlogs.length]);
 
   //pagination
   const startIndex = (page - 1) * 5;
